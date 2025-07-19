@@ -16,6 +16,7 @@ import SupportAndLogs from "./pages/SupportAndLogs";
 import RecentAndHistoricalData from "./components/energyConsumption/RecentAndHistoricalData";
 import UserDashboard from "./pages/UserDashboard";
 import ProtectedRoute from "./service/ProtectedRoute";
+import AdminUserList from "./pages/AdminUserList";
 
 const App = () => {
   // const isAuthenticated = true;
@@ -25,7 +26,10 @@ const App = () => {
       <Routes>
         <Route path="/" element={<DashboardLayout />}>
         {/* <Route path="admin" element={<ProtectedRoute isAuthenticated={isAuthenticated} allowedRoles={["Admin"]} userRoles={userRole} />}> */}
+        
           <Route index element={<AdminDashboard />} />
+           <Route path="/userlist" element={<AdminUserList />} />
+
           <Route path="userdashboard" element={<UserDashboard/>}/>
 
           <Route path="userdashboard">

@@ -1201,36 +1201,6 @@ const AlertAndNotification = ({ userRole = "admin" }) => {
   const [activeTab, setActiveTab] = useState("users"); // 'users' or 'adminNotifications'
   const itemsPerPage = 6;
 
-  // Mock admin notifications data
-  // const mockAdminNotifications = [
-  //   {
-  //     _id: "ADM-1",
-  //     alertType: "System Alert",
-  //     message: "Server CPU usage is above 90% threshold",
-  //     value: "92% CPU",
-  //     mode: "Email",
-  //     time: "2025-01-16T09:15:00Z",
-  //     status: "enabled",
-  //   },
-  //   {
-  //     _id: "ADM-2",
-  //     alertType: "Security Alert",
-  //     message: "Unusual login attempt detected",
-  //     value: "From IP: 192.168.1.100",
-  //     mode: "Text",
-  //     time: "2025-01-15T22:30:00Z",
-  //     status: "enabled",
-  //   },
-  //   {
-  //     _id: "ADM-3",
-  //     alertType: "Maintenance Required",
-  //     message: "Meter MTR-004 needs firmware update",
-  //     value: "MTR-004",
-  //     mode: "Email",
-  //     time: "2025-01-14T14:45:00Z",
-  //     status: "enabled",
-  //   },
-  // ];
 
 
     const dispatch = useDispatch();
@@ -1519,33 +1489,6 @@ const AlertAndNotification = ({ userRole = "admin" }) => {
     fetchData();
   }, [userType, selectedUser, activeTab]);
 
-  // Mock data based on MongoDB schema
-  // const mockUserNotifications = {
-  //   userId: "USR-12345",
-  //   meterId: "MTR-001",
-  //   status: "enabled",
-  //   lastNotificationDate: "2025-01-15T14:30:00Z",
-  //   userNotification: [
-  //     {
-  //       _id: "1",
-  //       alertType: "Low Balance",
-  //       message: "Your balance is low. Please recharge soon.",
-  //       value: "₹10 (threshold)",
-  //       mode: "Text",
-  //       time: "2025-01-15T14:30:00Z",
-  //       status: "enabled",
-  //     },
-  //     {
-  //       _id: "2",
-  //       alertType: "Balance Expired",
-  //       message: "Your balance has expired. Emergency 2 units activated.",
-  //       value: "₹0",
-  //       mode: "Text",
-  //       time: "2025-01-15T10:15:00Z",
-  //       status: "enabled",
-  //     },
-  //   ],
-  // };
 
   const mockUserNotifications = {
     userId: "USR-12345",
@@ -1829,23 +1772,7 @@ const AlertAndNotification = ({ userRole = "admin" }) => {
     ],
   };
 
-  // const mockUserNotifications2 = {
-  //   userId: "USR-12346",
-  //   meterId: "MTR-002",
-  //   status: "enabled",
-  //   lastNotificationDate: "2025-01-14T18:45:00Z",
-  //   userNotification: [
-  //     {
-  //       _id: "3",
-  //       alertType: "Recharge Successful",
-  //       message: "Recharge of ₹200 successful. New balance: ₹250.",
-  //       value: "₹200",
-  //       mode: "Text",
-  //       time: "2025-01-14T18:45:00Z",
-  //       status: "enabled",
-  //     },
-  //   ],
-  // };
+
 
   const mockUserNotifications2 = {
     userId: "USR-12346",
@@ -1990,23 +1917,7 @@ const AlertAndNotification = ({ userRole = "admin" }) => {
     ],
   };
 
-  // const mockUserNotifications3 = {
-  //   userId: "USR-12347",
-  //   meterId: "MTR-003",
-  //   status: "disabled",
-  //   lastNotificationDate: "2025-01-12T16:20:00Z",
-  //   userNotification: [
-  //     {
-  //       _id: "4",
-  //       alertType: "Meter Offline",
-  //       message: "Meter is offline or not responding.",
-  //       value: "Offline Duration",
-  //       mode: "Email",
-  //       time: "2025-01-12T16:20:00Z",
-  //       status: "enabled",
-  //     },
-  //   ],
-  // };
+ 
 
   const mockUserNotifications3 = {
     userId: "USR-12347",
@@ -2106,35 +2017,6 @@ const AlertAndNotification = ({ userRole = "admin" }) => {
       },
     ],
   };
-
-  // const mockAdminUsers = [
-  //   {
-  //     _id: "1",
-  //     userId: "USR-12345",
-  //     meterId: "MTR-001",
-  //     lastNotificationDate: "2025-01-15T14:30:00Z",
-  //     status: "enabled",
-  //     notificationCount: 2,
-  //   },
-  //   {
-  //     _id: "2",
-  //     userId: "USR-12346",
-  //     meterId: "MTR-002",
-  //     lastNotificationDate: "2025-01-14T18:45:00Z",
-  //     status: "enabled",
-  //     notificationCount: 1,
-  //   },
-  //   {
-  //     _id: "3",
-  //     userId: "USR-12347",
-  //     meterId: "MTR-003",
-  //     lastNotificationDate: "2025-01-12T16:20:00Z",
-  //     status: "disabled",
-  //     notificationCount: 1,
-  //   },
-  // ];
-
-  // Get icon for alert type
 
   const mockAdminUsers = [
     {
@@ -2917,70 +2799,7 @@ const AlertAndNotification = ({ userRole = "admin" }) => {
               </div>
             )}
 
-            {/* Pagination */}
-            {/* {(filteredNotifications.length > itemsPerPage || 
-             filteredUsers.length > itemsPerPage ||
-             filteredAdminNotifications.length > itemsPerPage) && (
-              <div className="flex items-center justify-between mt-6">
-                <div className="text-sm text-gray-600">
-                  Showing {(currentPage - 1) * itemsPerPage + 1} to{" "}
-                  {Math.min(
-                    currentPage * itemsPerPage,
-                    userType === "user" || selectedUser 
-                      ? filteredNotifications.length 
-                      : activeTab === "adminNotifications"
-                      ? filteredAdminNotifications.length
-                      : filteredUsers.length
-                  )}{" "}
-                  of{" "}
-                  {userType === "user" || selectedUser 
-                    ? filteredNotifications.length 
-                    : activeTab === "adminNotifications"
-                    ? filteredAdminNotifications.length
-                    : filteredUsers.length}{" "}
-                  items
-                </div>
-                <div className="flex space-x-2">
-                  <button
-                    onClick={() => goToPage(currentPage - 1)}
-                    disabled={currentPage === 1}
-                    className={`px-3 py-1 rounded-md border ${
-                      currentPage === 1
-                        ? "bg-gray-100 text-gray-400 cursor-not-allowed"
-                        : "bg-white text-gray-700 hover:bg-gray-50"
-                    }`}
-                  >
-                    Previous
-                  </button>
-                  {Array.from({ length: totalPages }, (_, i) => i + 1).map(
-                    (page) => (
-                      <button
-                        key={page}
-                        onClick={() => goToPage(page)}
-                        className={`px-3 py-1 rounded-md ${
-                          currentPage === page
-                            ? "bg-blue-600 text-white"
-                            : "bg-white text-gray-700 hover:bg-gray-50 border"
-                        }`}
-                      >
-                        {page}
-                      </button>
-                    )
-                  )}
-                  <button
-                    onClick={() => goToPage(currentPage + 1)}
-                    disabled={currentPage === totalPages}
-                    className={`px-3 py-1 rounded-md border ${
-                      currentPage === totalPages
-                        ? "bg-gray-100 text-gray-400 cursor-not-allowed"
-                        : "bg-white text-gray-700 hover:bg-gray-50"
-                    }`}
-                  >
-                    Next
-                  </button>
-                </div>
-              </div>
-            )} */}
+           
 
             {/* Pagination */}
             {(filteredNotifications.length > itemsPerPage ||
@@ -3097,3 +2916,500 @@ const AlertAndNotification = ({ userRole = "admin" }) => {
 };
 
 export default AlertAndNotification;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  return (
+//     <div className="min-h-screen bg-gray-50 p-4 sm:p-6 md:p-8">
+//       <div className="max-w-7xl mx-auto">
+//         {/* Global Status Toggle with Search - For notification details view */}
+//         {(userType === "user" || selectedUser) && notifications?.status && (
+//           <div className="bg-white rounded-lg shadow mb-6 p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+//             <div className="flex-1">
+//               <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+//                 <div>
+//                   <h3 className="text-sm font-medium text-gray-900">
+//                     Notification Status
+//                   </h3>
+//                   <p className="text-sm text-gray-500">
+//                     {notifications.status === "enabled"
+//                       ? "All notifications are currently enabled"
+//                       : "Notifications are currently disabled"}
+//                   </p>
+//                 </div>
+//                 <div className="relative w-full sm:w-72">
+//                   <Search className="h-4 w-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+//                   <input
+//                     type="text"
+//                     placeholder="Search notifications..."
+//                     value={searchTerm}
+//                     onChange={(e) => setSearchTerm(e.target.value)}
+//                     className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm text-gray-700"
+//                   />
+//                 </div>
+//               </div>
+//             </div>
+//             <button
+//               onClick={() =>
+//                 toggleGlobalNotificationStatus(
+//                   notifications.status === "enabled" ? "disabled" : "enabled"
+//                 )
+//               }
+//               className={`px-4 sm:px-6 py-2 rounded-lg font-medium text-sm ${
+//                 notifications.status === "enabled"
+//                   ? "bg-red-600 hover:bg-red-700 text-white"
+//                   : "bg-green-600 hover:bg-green-700 text-white"
+//               }`}
+//             >
+//               {notifications.status === "enabled"
+//                 ? "Disable All"
+//                 : "Enable All"}
+//             </button>
+//           </div>
+//         )}
+
+//         {/* Main Content */}
+//         <div className="bg-white rounded-lg shadow">
+//           <div className="p-6">
+//             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-4">
+//               {/* Search input moved here for admin view */}
+//               {userType === "admin" && !selectedUser && (
+//                 <div className="relative w-full sm:w-72">
+//                   <Search className="h-4 w-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+//                   <input
+//                     type="text"
+//                     placeholder={
+//                       activeTab === "adminNotifications"
+//                         ? "Search admin notifications..."
+//                         : "Search by user ID or meter ID..."
+//                     }
+//                     value={searchTerm}
+//                     onChange={(e) => setSearchTerm(e.target.value)}
+//                     className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm text-gray-700"
+//                   />
+//                 </div>
+//               )}
+
+//               <div className="flex items-center gap-4">
+//                 <h2 className="text-xl font-semibold text-gray-800">
+//                   {userType === "user"
+//                     ? "Your Notifications"
+//                     : selectedUser
+//                     ? `Notifications for ${selectedUser}`
+//                     : "Notification Management"}
+//                 </h2>
+
+//                 {/* Admin tabs - only shown when in admin view and no user selected */}
+//                 {userType === "admin" && !selectedUser && (
+//                   <div className="flex bg-gray-100 rounded-lg p-1">
+//                     <button
+//                       onClick={() => setActiveTab("users")}
+//                       className={`px-3 py-1 rounded-md text-sm font-medium ${
+//                         activeTab === "users"
+//                           ? "bg-blue-600 text-white"
+//                           : "text-gray-600 hover:text-gray-900"
+//                       }`}
+//                     >
+//                       Users
+//                     </button>
+//                     <button
+//                       onClick={() => setActiveTab("adminNotifications")}
+//                       className={`px-3 py-1 rounded-md text-sm font-medium ${
+//                         activeTab === "adminNotifications"
+//                           ? "bg-blue-600 text-white"
+//                           : "text-gray-600 hover:text-gray-900"
+//                       }`}
+//                     >
+//                       Admin Notifications
+//                     </button>
+//                   </div>
+//                 )}
+//               </div>
+
+//               {selectedUser && (
+//                 <button
+//                   onClick={handleBackToList}
+//                   className="flex items-center text-sm text-blue-600 hover:text-blue-800 font-medium"
+//                 >
+//                   <ChevronLeft className="h-4 w-4 mr-1" />
+//                   Back to users
+//                 </button>
+//               )}
+//             </div>
+
+//             {loading ? (
+//               <div className="text-center py-12">
+//                 <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 mx-auto mb-4"></div>
+//                 <p className="text-gray-600">Loading data...</p>
+//               </div>
+//             ) : userType === "user" || selectedUser ? (
+//               <div className="space-y-4">
+//                 {currentItems.length > 0 ? (
+//                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+//                     {currentItems.map((notification) => {
+//                       const colors = getAlertColors(notification.alertType);
+//                       return (
+//                         <div
+//                           key={notification._id}
+//                           className={`${colors.bg} ${colors.border} border rounded-lg p-4 transition-all hover:shadow-md`}
+//                         >
+//                           <div className="flex items-start justify-between">
+//                             <div className="flex items-start space-x-3 sm:space-x-4 flex-1">
+//                               <div className={`p-2 rounded-lg ${colors.bg}`}>
+//                                 <span className={colors.icon}>
+//                                   {getAlertIcon(notification.alertType)}
+//                                 </span>
+//                               </div>
+
+//                               <div className="flex-1 min-w-0">
+//                                 <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-3 mb-2">
+//                                   <h3 className="text-sm font-semibold text-gray-900">
+//                                     {notification.alertType}
+//                                   </h3>
+//                                   <span className="text-sm text-gray-500">
+//                                     Meter: {notifications.meterId}
+//                                   </span>
+//                                   <span
+//                                     className={`px-2 py-1 rounded-full text-xs font-medium ${
+//                                       notification.mode.includes("Text")
+//                                         ? "text-blue-600 bg-blue-100"
+//                                         : "text-purple-600 bg-purple-100"
+//                                     }`}
+//                                   >
+//                                     {notification.mode}
+//                                   </span>
+//                                 </div>
+
+//                                 <p className="text-sm text-gray-700 mb-3">
+//                                   {notification.message}
+//                                 </p>
+
+//                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm mb-4">
+//                                   <div>
+//                                     <span className="text-sm font-medium text-gray-600">
+//                                       Value:
+//                                     </span>
+//                                     <div className="text-sm text-gray-900 font-semibold">
+//                                       {notification.value}
+//                                     </div>
+//                                   </div>
+//                                   <div>
+//                                     <span className="text-sm font-medium text-gray-600">
+//                                       Time:
+//                                     </span>
+//                                     <div className="text-sm text-gray-900">
+//                                       {new Date(
+//                                         notification.time
+//                                       ).toLocaleString()}
+//                                     </div>
+//                                   </div>
+//                                 </div>
+//                               </div>
+//                             </div>
+//                           </div>
+//                         </div>
+//                       );
+//                     })}
+//                   </div>
+//                 ) : (
+//                   <div className="text-center py-12">
+//                     <Bell className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+//                     <h3 className="text-lg font-semibold text-gray-800 mb-2">
+//                       No notifications found
+//                     </h3>
+//                     <p className="text-gray-500">
+//                       {searchTerm
+//                         ? "Try adjusting your search criteria"
+//                         : "You're all caught up!"}
+//                     </p>
+//                   </div>
+//                 )}
+//               </div>
+//             ) : activeTab === "adminNotifications" ? (
+//               <div className="space-y-4">
+//                 {currentItems.length > 0 ? (
+//                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+//                     {currentItems.map((notification) => {
+//                       const colors = getAlertColors(notification.alertType);
+//                       return (
+//                         <div
+//                           key={notification._id}
+//                           className={`${colors.bg} ${colors.border} border rounded-lg p-4 transition-all hover:shadow-md`}
+//                         >
+//                           <div className="flex items-start justify-between">
+//                             <div className="flex items-start space-x-3 sm:space-x-4 flex-1">
+//                               <div className={`p-2 rounded-lg ${colors.bg}`}>
+//                                 <span className={colors.icon}>
+//                                   {getAlertIcon(notification.alertType)}
+//                                 </span>
+//                               </div>
+
+//                               <div className="flex-1 min-w-0">
+//                                 <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-3 mb-2">
+//                                   <h3 className="text-sm font-semibold text-gray-900">
+//                                     {notification.alertType}
+//                                   </h3>
+//                                   <span
+//                                     className={`px-2 py-1 rounded-full text-xs font-medium ${
+//                                       notification.mode.includes("Text")
+//                                         ? "text-blue-600 bg-blue-100"
+//                                         : "text-purple-600 bg-purple-100"
+//                                     }`}
+//                                   >
+//                                     {notification.mode}
+//                                   </span>
+//                                 </div>
+
+//                                 <p className="text-sm text-gray-700 mb-3">
+//                                   {notification.message}
+//                                 </p>
+
+//                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm mb-4">
+//                                   <div>
+//                                     <span className="text-sm font-medium text-gray-600">
+//                                       Value:
+//                                     </span>
+//                                     <div className="text-sm text-gray-900 font-semibold">
+//                                       {notification.value}
+//                                     </div>
+//                                   </div>
+//                                   <div>
+//                                     <span className="text-sm font-medium text-gray-600">
+//                                       Time:
+//                                     </span>
+//                                     <div className="text-sm text-gray-900">
+//                                       {new Date(
+//                                         notification.time
+//                                       ).toLocaleString()}
+//                                     </div>
+//                                   </div>
+//                                 </div>
+//                               </div>
+//                             </div>
+//                           </div>
+//                         </div>
+//                       );
+//                     })}
+//                   </div>
+//                 ) : (
+//                   <div className="text-center py-12">
+//                     <Bell className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+//                     <h3 className="text-lg font-semibold text-gray-800 mb-2">
+//                       No admin notifications found
+//                     </h3>
+//                     <p className="text-gray-500">
+//                       {searchTerm
+//                         ? "Try adjusting your search criteria"
+//                         : "No admin notifications available"}
+//                     </p>
+//                   </div>
+//                 )}
+//               </div>
+//             ) : (
+//               <div className="space-y-4">
+//                 {currentItems.length > 0 ? (
+//                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+//                     {currentItems.map((user) => (
+//                       <div
+//                         key={user._id}
+//                         className="border border-gray-200 rounded-lg p-4 cursor-pointer hover:bg-gray-50 transition-colors"
+//                         onClick={() => handleUserSelection(user.userId)}
+//                       >
+//                         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between">
+//                           <div className="flex items-center space-x-3 sm:space-x-4 mb-3 sm:mb-0">
+//                             <div className="p-2 rounded-lg bg-gray-100">
+//                               <User className="h-5 w-5 text-gray-600" />
+//                             </div>
+//                             <div>
+//                               <h3 className="text-sm font-semibold text-gray-900">
+//                                 {user.userId}
+//                               </h3>
+//                               <p className="text-sm text-gray-500">
+//                                 Meter: {user.meterId}
+//                               </p>
+//                             </div>
+//                           </div>
+
+//                           <div className="flex flex-col sm:flex-row items-start sm:items-center sm:space-x-6 w-full sm:w-auto">
+//                             <div className="text-left sm:text-right mb-3 sm:mb-0">
+//                               <div className="text-sm font-medium text-gray-900">
+//                                 Last Notification:{" "}
+//                                 {new Date(
+//                                   user.lastNotificationDate
+//                                 ).toLocaleDateString()}
+//                               </div>
+//                               <div className="text-xs text-gray-500">
+//                                 {user.notificationCount} notifications
+//                               </div>
+//                             </div>
+
+//                             <div className="flex items-center space-x-2 w-full sm:w-auto justify-between sm:justify-start">
+//                               <button
+//                                 onClick={(e) => {
+//                                   e.stopPropagation();
+//                                   toggleUserStatus(
+//                                     user.userId,
+//                                     user.status === "enabled"
+//                                       ? "disabled"
+//                                       : "enabled"
+//                                   );
+//                                 }}
+//                                 className={`px-3 py-1 rounded-md text-xs font-medium ${
+//                                   user.status === "enabled"
+//                                     ? "bg-red-100 hover:bg-red-200 text-red-600"
+//                                     : "bg-green-100 hover:bg-green-200 text-green-600"
+//                                 }`}
+//                               >
+//                                 {user.status === "enabled"
+//                                   ? "Disable"
+//                                   : "Enable"}
+//                               </button>
+//                               <ChevronRight className="h-5 w-5 text-gray-400" />
+//                             </div>
+//                           </div>
+//                         </div>
+//                       </div>
+//                     ))}
+//                   </div>
+//                 ) : (
+//                   <div className="text-center py-12">
+//                     <Bell className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+//                     <h3 className="text-lg font-semibold text-gray-800 mb-2">
+//                       No users notifications found
+//                     </h3>
+//                     <p className="text-gray-500">
+//                       {searchTerm
+//                         ? "Try adjusting your search criteria"
+//                         : "No users available"}
+//                     </p>
+//                   </div>
+//                 )}
+//               </div>
+//             )}
+
+//             {/* Pagination */}
+//             {(filteredNotifications.length > itemsPerPage ||
+//               filteredUsers.length > itemsPerPage ||
+//               filteredAdminNotifications.length > itemsPerPage) && (
+//               <div className="flex items-center justify-between mt-6">
+//                 <div className="text-sm text-gray-500">
+//                   Showing {(currentPage - 1) * itemsPerPage + 1} to{" "}
+//                   {Math.min(
+//                     currentPage * itemsPerPage,
+//                     userType === "user" || selectedUser
+//                       ? filteredNotifications.length
+//                       : activeTab === "adminNotifications"
+//                       ? filteredAdminNotifications.length
+//                       : filteredUsers.length
+//                   )}{" "}
+//                   of{" "}
+//                   {userType === "user" || selectedUser
+//                     ? filteredNotifications.length
+//                     : activeTab === "adminNotifications"
+//                     ? filteredAdminNotifications.length
+//                     : filteredUsers.length}{" "}
+//                   items
+//                 </div>
+//                 <div className="flex space-x-2">
+//                   <button
+//                     onClick={() => goToPage(currentPage - 1)}
+//                     disabled={currentPage === 1}
+//                     className={`px-3 py-1 rounded-md border text-sm ${
+//                       currentPage === 1
+//                         ? "bg-gray-100 text-gray-400 cursor-not-allowed"
+//                         : "bg-white text-gray-700 hover:bg-gray-50"
+//                     }`}
+//                   >
+//                     Previous
+//                   </button>
+
+//                   {/* Always show first page */}
+//                   <button
+//                     onClick={() => goToPage(1)}
+//                     className={`px-3 py-1 rounded-md text-sm ${
+//                       currentPage === 1
+//                         ? "bg-blue-600 text-white"
+//                         : "bg-white text-gray-700 hover:bg-gray-50 border"
+//                     }`}
+//                   >
+//                     1
+//                   </button>
+
+//                   {/* Always show second page */}
+//                   {totalPages >= 2 && (
+//                     <button
+//                       onClick={() => goToPage(2)}
+//                       className={`px-3 py-1 rounded-md text-sm ${
+//                         currentPage === 2
+//                           ? "bg-blue-600 text-white"
+//                           : "bg-white text-gray-700 hover:bg-gray-50 border"
+//                       }`}
+//                     >
+//                       2
+//                     </button>
+//                   )}
+
+//                   {/* Show ellipsis if there are pages between 2 and n-1 */}
+//                   {totalPages > 4 && <span className="px-3 py-1">...</span>}
+
+//                   {/* Show second last page if it's not page 2 */}
+//                   {totalPages >= 4 && (
+//                     <button
+//                       onClick={() => goToPage(totalPages - 1)}
+//                       className={`px-3 py-1 rounded-md text-sm ${
+//                         currentPage === totalPages - 1
+//                           ? "bg-blue-600 text-white"
+//                           : "bg-white text-gray-700 hover:bg-gray-50 border"
+//                       }`}
+//                     >
+//                       {totalPages - 1}
+//                     </button>
+//                   )}
+
+//                   {/* Show last page if it's not page 1 or 2 */}
+//                   {totalPages >= 3 && (
+//                     <button
+//                       onClick={() => goToPage(totalPages)}
+//                       className={`px-3 py-1 rounded-md text-sm ${
+//                         currentPage === totalPages
+//                           ? "bg-blue-600 text-white"
+//                           : "bg-white text-gray-700 hover:bg-gray-50 border"
+//                       }`}
+//                     >
+//                       {totalPages}
+//                     </button>
+//                   )}
+
+//                   <button
+//                     onClick={() => goToPage(currentPage + 1)}
+//                     disabled={currentPage === totalPages}
+//                     className={`px-3 py-1 rounded-md border text-sm ${
+//                       currentPage === totalPages
+//                         ? "bg-gray-100 text-gray-400 cursor-not-allowed"
+//                         : "bg-white text-gray-700 hover:bg-gray-50"
+//                     }`}
+//                   >
+//                     Next
+//                   </button>
+//                 </div>
+//               </div>
+//             )}
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default AlertAndNotification;

@@ -686,7 +686,9 @@ function UserDashboard() {
             </div>
             
             <div className="mt-6">
+              {  console.log("====ffv1 ==",charts)}
               {charts.map((chart) => {
+                console.log("====ffv ==",chart)
                 const filteredChart = filterChart(chart);
                 return (
                   <CurrentPowerChart
